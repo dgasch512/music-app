@@ -1,17 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Card, CardActions, CardContent, Typography, Select, FormControl, MenuItem } from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
+    maxWidth: 300
   },
   title: {
     fontSize: 14,
@@ -28,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SQCard() {
+export default function SQCard(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  // const [eq, setEq] = React.useState('');
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setEq(event.target.value);
+  // };
 
   return (
     <Card className={classes.root}>
@@ -51,8 +46,8 @@ export default function SQCard() {
           <Select
             labelId="demo-simple-select-autowidth-label"
             id="demo-simple-select-autowidth"
-            value={age}
-            onChange={handleChange}
+            value={props.quality}
+            onChange={props.qualityChange}
             autoWidth
           >
             <MenuItem value={1}>Low</MenuItem>

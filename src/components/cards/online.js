@@ -1,16 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Switch from '@material-ui/core/Switch';
+import { Card, CardActions, CardContent, Button, Typography, Switch } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    maxWidth: 300
   },
   bullet: {
     display: 'inline-block',
@@ -25,27 +21,9 @@ const useStyles = makeStyles({
   },
 });
 
-// function FriendStatus(props) {
-//   const isOnline = useFriendStatus(props.friend.id);
 
-//   if (isOnline === null) {
-//     return 'Loading...';
-//   }
-//   return isOnline ? 'Online' : 'Offline';
-// }
-
-
-export default function OnlineCard() {
+export default function OnlineCard(props) {
   const classes = useStyles();
-
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
 
   return (
     <Card className={classes.root}>
@@ -59,9 +37,8 @@ export default function OnlineCard() {
       </CardContent>
       <CardActions>
         <Switch
-          checked={state.checkedA}
-          onChange={handleChange}
-          name="checkedA"
+          checked={props.online}
+          onChange={props.onlineSwitch}
           inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
       </CardActions>

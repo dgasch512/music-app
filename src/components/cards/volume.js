@@ -1,14 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import { Card, CardActions, CardContent, Typography, Slider } from '@material-ui/core';
+
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    maxWidth: 300
   },
   title: {
     fontSize: 14,
@@ -21,11 +19,11 @@ const useStyles = makeStyles({
   }
 });
 
-function valuetext(value) {
-  return `${value}°C`;
+function valueText(value) {
+  return `${value}`;
 }
 
-export default function VolumeCard() {
+export default function VolumeCard(props) {
   const classes = useStyles();
 
   return (
@@ -41,13 +39,14 @@ export default function VolumeCard() {
       <CardActions>
       <Slider
         defaultValue={50}
-        getAriaValueText={valuetext}
+        getAriaValueText={valueText}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
         step={10}
         marks
         min={0}
         max={100}
+        onChange={props.volumeBar}
       />
       </CardActions>
     </Card>

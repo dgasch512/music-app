@@ -12,35 +12,35 @@ class Dashboard extends React.Component {
     notifications: [],
     volume: 50,
     online: true,
-    soundQuality: 2
+    soundQuality: '2'
   }
 
-  handleVolume = volume => {
-    if(volume >= 80) {
-      this.setState({
-        notifications: [...this.state.notifications, 'Listening to music at a high volume could cause long-term hearing loss.']
-      })
+  handleVolume = (vol, newVol) => {
+    this.setState({ volume: newVol })
+      if(newVol >= 80) {
+        this.setState({
+          notifications: [...this.state.notifications, 'Listening to music at a high volume could cause long-term hearing loss.']
+        })
     }
-    this.setState({volume: volume})
   }
 
   handleOnline = () => {
     const offline = !this.state.online;
-    if(this.state.online === false) {
-    this.setState({
-      notifications: [...this.state.notifications, "Your application is offline. You won't be able to share or stream music to other devices."]
-    });
+      if(this.state.online === true) {
+      this.setState({
+        notifications: [...this.state.notifications, "Your application is offline. You won't be able to share or stream music to other devices."]
+      });
     }
     this.setState({ online: offline });
   }
 
-  handleQuality = quality => {
-    if(quality === 1) {
-    this.setState({
-      notifications: [...this.state.notifications, "Music quality is degraded. Increase quality if your connection allows it."]
-    });
-  }
-    this.setState({ soundQuality: quality });
+  handleQuality = ( e ) => {
+    this.setState({ soundQuality: e.target.value });
+    if( e.target.value === 1) {
+      this.setState({
+        notifications: [...this.state.notifications, "Music quality is degraded. Increase quality if your connection allows it."]
+      });
+    }
   }
 
 
@@ -55,15 +55,16 @@ class Dashboard extends React.Component {
         direction="row"
         justify="center"
         alignItems="center"
+ 
       >
         <Grid item xs={12} md={4}>
-           <OnlineCard onlineSwitch={this.handleOnline}/>    
+           <OnlineCard online={this.state.online} onlineSwitch={this.handleOnline}/>    
         </Grid>
         <Grid item xs={12} md={4}>
             <VolumeCard volumeBar={this.handleVolume}/> 
         </Grid>
         <Grid item xs={12} md={4}>
-            <SQCard qualityChange={this.handleQuality}/> 
+            <SQCard quality={this.state.soundQuality} qualityChange={this.handleQuality}/> 
         </Grid>
       </Grid>
 
@@ -72,8 +73,8 @@ class Dashboard extends React.Component {
         <ul>
           {this.state.notifications.map((item, index) => {
           return (
-            <div>
-            <li key={index} index={index}>{item}</li>
+            <div key={index}>
+            <li> {item} </li>
             </div>)
           })}
         </ul>
