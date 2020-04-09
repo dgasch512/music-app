@@ -48,7 +48,6 @@ export default function SQCard() {
       </CardContent>
       <CardActions>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-autowidth-label">Normal</InputLabel>
           <Select
             labelId="demo-simple-select-autowidth-label"
             id="demo-simple-select-autowidth"
@@ -56,12 +55,9 @@ export default function SQCard() {
             onChange={handleChange}
             autoWidth
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Low</MenuItem>
-            <MenuItem value={20}>Normal</MenuItem>
-            <MenuItem value={30}>High</MenuItem>
+            <MenuItem value={1}>Low</MenuItem>
+            <MenuItem value={2}>Normal</MenuItem>
+            <MenuItem value={3}>High</MenuItem>
           </Select>
         </FormControl>
       </CardActions>

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function LogIn() {
+export default function LogIn(props) {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ export default function LogIn() {
     <AppBar />
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={e => props.onSubmit(e)}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -59,7 +59,7 @@ export default function LogIn() {
             type="submit"
             variant="contained"
             color="primary"
-            onClick={ () => this.props.handleLogin()}
+            // onClick={ () => props.onSubmit()}
           >
             Log In
           </Button>

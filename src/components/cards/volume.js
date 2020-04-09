@@ -40,14 +40,14 @@ export default function VolumeCard() {
       </CardContent>
       <CardActions>
       <Slider
-        defaultValue={30}
+        defaultValue={50}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
         step={10}
         marks
-        min={10}
-        max={110}
+        min={0}
+        max={100}
       />
       </CardActions>
     </Card>

@@ -5,23 +5,25 @@ import LogIn from './components/login';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: true,
+    loggedIn: false
   }
 
-  handleLogin = () => {
-    this.setState({ loggedIn: true })
+  handleLogin = props => {
+    props.preventDefault();
+    this.setState({ loggedIn: true });
   }
 
 
   render () {
-    return <div>
-    { this.state.loggedIn ? (
-      <Dashboard />
-    ) : (
-      <LogIn onSubmit= {this.handleLogin} />
-    )}
-    </div>
-
+    return (
+      <div>
+      { this.state.loggedIn ? (
+        <Dashboard />
+      ) : (
+        <LogIn onSubmit= {this.handleLogin} />
+      )}
+      </div>
+    )
   }
 }
 
