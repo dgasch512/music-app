@@ -5,8 +5,7 @@ import { Card, CardActions, CardContent, Typography, Select, FormControl, MenuIt
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 275,
-    maxWidth: 300
+    width: '275px'
   },
   title: {
     fontSize: 14,

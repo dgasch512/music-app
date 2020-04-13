@@ -52,23 +52,30 @@ class Dashboard extends React.Component {
       <Grid 
         container 
         spacing={4}
+        display="flex"
         direction="row"
         justify="center"
-        alignItems="center"
+        align="center"
+        style={{
+          margin: '20px',
+          padding: '10px 30px',
+          width: '90%'
+        }}
+
  
       >
-        <Grid item xs={12} md={4}>
+        <Grid item xs={11} md={4}>
            <OnlineCard online={this.state.online} onlineSwitch={this.handleOnline}/>    
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={11} md={4}>
             <VolumeCard volumeBar={this.handleVolume}/> 
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={11} md={4}>
             <SQCard quality={this.state.soundQuality} qualityChange={this.handleQuality}/> 
         </Grid>
       </Grid>
 
-      <div>
+      <div style={{margin: "20px", padding: "0 30px"}}>
         <h4>System Notifications:</h4>
         <ul>
           {this.state.notifications.map((item, index) => {

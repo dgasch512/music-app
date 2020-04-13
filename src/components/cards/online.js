@@ -1,17 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActions, CardContent, Button, Typography, Switch } from '@material-ui/core';
+import { Card, CardActions, CardContent, Typography, Switch } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-    maxWidth: 300
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    width: '275px'
   },
   title: {
     fontSize: 14,

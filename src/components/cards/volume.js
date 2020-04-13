@@ -5,8 +5,7 @@ import { Card, CardActions, CardContent, Typography, Slider } from '@material-ui
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-    maxWidth: 300
+    width: '275px'
   },
   title: {
     fontSize: 14,

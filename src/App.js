@@ -5,7 +5,7 @@ import LogIn from './components/login';
 
 export default class App extends React.Component {
   state = {
-    loggedIn: false
+    loggedIn: true
   }
 
   handleLogin = props => {
